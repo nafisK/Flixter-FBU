@@ -4,40 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MovieDetailsActivity">
+
+
+    <ImageView
+        android:id="@+id/posterBackdrop"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="6dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:id="@+id/imgOverlay"
+        android:src="@drawable/play"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        />
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/posterBackdrop"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:text="Movie Title"
-        android:textAppearance="@android:style/TextAppearance.Large"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginTop="0dp"
+        android:textColor="@color/red"
+        android:text="Movie Title"
+        android:textStyle="bold"
+        android:textSize="26dp"
+        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Large" />
 
     <TextView
         android:id="@+id/tvOverview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:layout_below="@+id/rbVoteAverage"
+        android:layout_below="@+id/aboutMovie"
+        android:textColor="@color/white"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/aboutMovie"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About:"
+        android:layout_below="@+id/rbVoteAverage"
+
+        />
 
     <RatingBar
         android:id="@+id/rbVoteAverage"
         style="@style/Widget.AppCompat.RatingBar.Small"
         android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/tvTitle"
         android:numStars="5"
-        android:stepSize="0.5" />
+        android:stepSize="1" />
+
+
 
 </RelativeLayout>
