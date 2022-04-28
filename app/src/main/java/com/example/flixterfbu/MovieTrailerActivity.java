@@ -37,6 +37,7 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
         // temporary test video id -- TODO replace with movie trailer video id
         String videoId = getIntent().getStringExtra("id");
         String URL = String.format("https://api.themoviedb.org/3/movie/%s/videos?api_key=a84a9bec1794546328acf362d75d590c", videoId);
+//        String URL = String.format("https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed", videoId);
 
         AsyncHttpClient client  = new AsyncHttpClient();
         client.get(URL, new JsonHttpResponseHandler() {
@@ -49,11 +50,12 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
                     JSONArray results = jsonObject.getJSONArray("results");
                     JSONObject object = results.getJSONObject(0);
                     videoKey = object.getString("key");
+                    Log.d(TAG, object.toString());
                 } catch (JSONException e) {
                     Log.e(TAG, "Hit json exception", e);
                 }
             }
-
+            // videoKey = iA_wCcG-dQQ
             @Override
             public void onFailure(int i, Headers headers, String s, Throwable throwable) {
                 Log.e(TAG, throwable.toString());
@@ -71,6 +73,7 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
             public void onInitializationSuccess(YouTubePlayer.Provider provider,
                                                 YouTubePlayer youTubePlayer, boolean b) {
                 // do any work here to cue video, play video, etc.
+                Log.i(TAG, "Video Key: " + videoKey);
                 youTubePlayer.cueVideo(videoKey);
             }
 
